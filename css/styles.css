@@ -1,0 +1,372 @@
+:root {
+  /* ### Colors ### */
+
+  /* ## Primary ##  */
+
+  --strong-cyan: hsl(172, 67%, 45%);
+
+  /* ## Neutral ##  */
+
+  /* close to salmon */
+  --soft-reddish-orange: hsl(13deg 70% 61%);
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --very-dark-grayish-cyan: hsl(186, 14%, 43%);
+  --dark-grayish-cyan: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+
+  /* ## Typography ##  */
+
+  /* ## Body Copy ## */
+
+  /* form inputs */
+  --fs--body: 1.6rem;
+
+  /* ## Font ## */
+
+  /* - Family: [Space Mono](https://fonts.google.com/specimen/Space+Mono)
+- Weights: 400, 500, 700 */
+  --ff-primary: 'Space Mono', monospace;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--light-grayish-cyan);
+  font-family: var(--ff-primary);
+  font-size: 1rem; /*unless specified otherwise*/
+  line-height: 1.63em;
+}
+
+img {
+  max-width: 100%;
+  display: block; /* this is something you'll use often but more optional*/
+}
+
+label,
+input,
+button {
+  display: block;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+header {
+  padding: 3.125em 0 2.5em;
+}
+
+/* main  */
+
+main {
+  width: 100%;
+  max-width: 57.5rem;
+  border-radius: 1.5625rem 1.5625rem 0 0;
+  background-color: var(--white);
+  padding: 1.5em;
+}
+
+section > * {
+  margin-bottom: 2rem;
+}
+
+.bill--input,
+.num__people--input {
+  width: 100%;
+  background-color: hsl(185, 38%, 97%);
+  color: var(--very-dark-cyan);
+  border: none;
+  border-radius: 5px;
+  text-align: right;
+  font-size: var(--fs--body);
+  padding: 6px 17px;
+}
+
+.bill--input {
+  background-image: url('../images/icon-dollar.svg');
+  background-repeat: no-repeat;
+  background-position: left 5% center;
+}
+
+.num__people--input {
+  background-image: url('../images/icon-person.svg');
+  background-repeat: no-repeat;
+  background-position: left 5% center;
+}
+
+.input__num {
+  position: relative;
+}
+
+.error--hidden {
+  display: none;
+}
+
+.error {
+  color: var(--soft-reddish-orange);
+  position: absolute;
+  font-weight: 700;
+  top: 0;
+  right: 0;
+}
+
+.title {
+  color: var(--very-dark-grayish-cyan);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* tip selection section  */
+
+.tip__selection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em 1em;
+}
+
+.tip__selection .title {
+  grid-column: 1 / span 2;
+}
+
+.btn--right {
+  width: 100%;
+  justify-self: flex-end;
+}
+
+.btn--tip,
+.input--custom {
+  max-width: 146px;
+  text-align: center;
+  caret-color: var(--strong-cyan);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  background-color: var(--very-dark-cyan);
+  font-size: var(--fs--body);
+  font-weight: 700;
+  padding: 6px 17px;
+  transition: all 0.5ms ease-in;
+}
+
+.input--custom:focus {
+  text-align: right;
+  padding: 8px;
+  color: var(--very-dark-cyan);
+}
+
+.btn--selected {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+}
+
+.input--custom {
+  background-color: var(--very-light-grayish-cyan);
+  list-style: none;
+  color: hsl(180, 18%, 40%);
+}
+
+/* display input section  */
+
+.display__input {
+  border-radius: 0.9375rem;
+  background-color: var(--very-dark-cyan);
+  padding: 1.8em 1.5em 0.5em;
+}
+
+.display__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 1em;
+}
+
+.tip__amount--content,
+.total__person--content {
+  color: var(--white);
+}
+
+span {
+  display: block;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  color: var(--dark-grayish-cyan);
+}
+
+.tip__amount--value,
+.total__person--value {
+  font-size: 2rem;
+  color: var(--strong-cyan);
+}
+
+.btn--reset {
+  width: 100%;
+  padding: 9px 32px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.25rem;
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+}
+
+.btn--reset-selected {
+  cursor: unset;
+  background-color: hsl(183, 78%, 24%);
+  color: hsl(183, 100%, 15%);
+  opacity: 35%;
+  pointer-events: none;
+}
+
+/* footer  */
+
+.attribution {
+  position: absolute;
+  bottom: 0;
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: var(--soft-reddish-orange);
+}
+
+@media (min-width: 30em) {
+  .tip__selection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em 1em;
+  }
+
+  .tip__selection .title {
+    grid-column: 1 / span 3;
+  }
+
+  .btn--right {
+    justify-self: auto;
+  }
+}
+
+@media (min-width: 45em) {
+  /* general  */
+
+  .container {
+    margin: 0 auto;
+    width: 95%;
+  }
+
+  header {
+    padding: 0;
+    margin-bottom: 5.4375em;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: minmax(min-content, 379px) minmax(min-content, 413px);
+    /* grid-template-columns: repeat(2, 1fr); */
+    grid-template-rows: 417px;
+    gap: 0 15px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 45px 32px 32px 48px;
+    border-radius: 25px;
+  }
+
+  section > * {
+    margin-bottom: 0;
+  }
+
+  .btn {
+    cursor: pointer;
+    transition: all 0.5s ease-in;
+  }
+
+  .btn:hover,
+  .btn:active {
+    background-color: hsl(173, 61%, 77%);
+    color: var(--very-dark-cyan);
+  }
+
+  input:focus {
+    outline: 2px solid var(--strong-cyan);
+  }
+
+  /* user input  */
+
+  .user__input > * + * {
+    margin-top: 2em;
+  }
+
+  /* tip selection  */
+
+  .tip__selection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8125em 0.8125em;
+  }
+
+  .tip__selection .title {
+    grid-column: 1 / span 3;
+  }
+
+  .btn--right {
+    justify-self: auto;
+  }
+
+  .tip__amount--value,
+  .total__person--value {
+    font-size: 3rem;
+    color: var(--strong-cyan);
+  }
+
+  .btn--tip,
+  .input--custom {
+    max-width: 118px;
+    padding: 6px 15px;
+    transition: all 0.5s ease-in;
+  }
+
+  .input--custom {
+    padding: 6px 0;
+  }
+
+  .num__people--error {
+    outline: 2px solid var(--soft-reddish-orange);
+  }
+
+  /* display input  */
+
+  .display__input {
+    padding: 2.5em;
+  }
+
+  .display__content {
+    margin-bottom: 1.5625em;
+  }
+
+  .btn--reset {
+    margin-top: 7.625em;
+  }
+}
