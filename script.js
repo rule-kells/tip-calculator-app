@@ -14,15 +14,17 @@ resetBtn.classList.add('btn--reset-selected')
 
 const init = function () {
   resetBtn.classList.add('btn--reset-selected')
-  btn.classList.remove('btn--selected')
   billAmtInput.value = ''
   numPeopleInput.value = ''
   inputCustom.value = ''
   tipAmountValue.textContent = '0.00'
   totalPersonValue.textContent = '0.00'
-}
 
-init()
+  btnTip.forEach((btn) => {
+    if (btn.classList.contains('btn--selected'))
+      btn.classList.remove('btn--selected')
+  })
+}
 
 function selectBtn(e) {
   btnTip.forEach((btn) => {
@@ -31,6 +33,8 @@ function selectBtn(e) {
       : btn.classList.remove('btn--selected')
   })
 }
+
+init()
 
 for (let i = 0; i < btnTip.length; i++) {
   btnTip[i].addEventListener('click', function (e) {
