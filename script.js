@@ -14,6 +14,7 @@ resetBtn.classList.add('btn--reset-selected')
 
 const init = function () {
   resetBtn.classList.add('btn--reset-selected')
+  btn.classList.remove('btn--selected')
   billAmtInput.value = ''
   numPeopleInput.value = ''
   inputCustom.value = ''
